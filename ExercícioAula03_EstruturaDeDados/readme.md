@@ -1,4 +1,3 @@
-
 <h1 align="center">Exercicío - Aula 03 - Estrutura de dados.</h1>
 
 <h4 align="center">Status: Criado</h4>
@@ -13,4 +12,3 @@
 <h4>5 - Para Remover, escolher a opção "2 - Remover", se você tiver na "Fila" será removido o primeiro item da lista, caso você esteja na "Pilha" será removido o ultimo item da lista, no final irá mostrar o valor do item no console .</h4>
 <h4>6 - Para Listar, escolher a opção "3 - Listar", irá listar no console, todos os itens ainda existentes na lista.</h4>
 <h4>7 - Para Encerrar, escolher a opção "0 - Encerrar".</h4>
-

@@ -7,7 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Escolha uma das opções:");
+		System.out.println("Escolha uma das opcoes:");
 		System.out.println("[1] - Fila");
 		System.out.println("[2] - Pilha ");
 		int menuPrincipal = sc.nextInt();
@@ -28,8 +28,8 @@ public class Main {
 		int menuFila;
 		String nome;
 		do {
-			System.out.println("Menu de opções para FILA:");
-			System.out.println("Escolha uma das opções:");
+			System.out.println("Menu de opcoes para FILA:");
+			System.out.println("Escolha uma das opcoes:");
 			System.out.println("[1] - Adicionar");
 			System.out.println("[2] - Remover ");
 			System.out.println("[3] - Listar");
@@ -66,8 +66,8 @@ public class Main {
 		int menuPilha;
 		String nome;
 		do {
-			System.out.println("Menu de opções para PILHA:");
-			System.out.println("Escolha uma das opções:");
+			System.out.println("Menu de opcoes para PILHA:");
+			System.out.println("Escolha uma das opcoes:");
 			System.out.println("[1] - Adicionar");
 			System.out.println("[2] - Remover ");
 			System.out.println("[3] - Listar");
@@ -84,7 +84,7 @@ public class Main {
 			if (menuPilha == 2) {
 				System.out.println("");
 				String itemRetirado = pilha.pop();
-				System.out.println("\n - Último Item da Pilha removido :" + itemRetirado);
+				System.out.println("\n - Ultimo Item da Pilha removido :" + itemRetirado);
 				System.out.println("\n\n");
 			}
 			if (menuPilha == 3) {
