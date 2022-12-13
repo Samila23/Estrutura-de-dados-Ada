@@ -1,16 +1,22 @@
 package Aula02_Prof;
-
 public class ListaDuplamenteEncadeada<T> {
+	
 
 	public class ItemListaEncadeada<K> {
-		
 	    private K dado;
+	    private ItemListaEncadeada<K> anterior;
 	    private ItemListaEncadeada<K> proximo;
 		public K getDado() {
 			return dado;
 		}
 		public void setDado(K dado) {
 			this.dado = dado;
+		}
+		public ItemListaEncadeada<K> getAnterior() {
+			return anterior;
+		}
+		public void setAnterior(ItemListaEncadeada<K> anterior) {
+			this.anterior = anterior;
 		}
 		public ItemListaEncadeada<K> getProximo() {
 			return proximo;
@@ -36,6 +42,7 @@ public class ListaDuplamenteEncadeada<T> {
         } else {
             ItemListaEncadeada<T> item = new ItemListaEncadeada<>();
             item.setDado(dado);
+            item.setAnterior(ultimoItem);
             ultimoItem.setProximo(item);
             ultimoItem = item;
         }
@@ -51,15 +58,21 @@ public class ListaDuplamenteEncadeada<T> {
 
     public T get(int posicao) throws Exception {
         this.validateRulesList(posicao);
-
         if (posicao == 0) return primeiroItem.getDado();
-        
         ItemListaEncadeada<T> item = primeiroItem;
+        //Se a posicao for menor que a divisão, eu vou fazer o for iniciado da posição 0.
+        if(posicao <= (tamanho/2)) {
+            for (int i = 0; i < posicao; i++) {
+                item = item.getProximo();
+            }
 
-        for (int i = 0; i < posicao; i++) {
-            item = item.getProximo();
         }
-
+        //Se a posicao for maior que a divisão, eu vou fazer o for reverse.
+        if(posicao >= (tamanho/2 + 1)) {
+            for (int i = tamanho; i < posicao; i--) {
+                item = item.getProximo();
+            }
+        }
         return item.getDado();
     }
     
@@ -85,8 +98,8 @@ public class ListaDuplamenteEncadeada<T> {
             return dado;
         }
         
-        ItemListaEncadeada<T> itemAnterior = this.getItem(posicao-1);
-        ItemListaEncadeada<T> itemAtual = itemAnterior.getProximo();
+        ItemListaEncadeada<T> itemAtual = this.getItem(posicao);
+        ItemListaEncadeada<T> itemAnterior = itemAtual.getAnterior();
 
         if (itemAtual == ultimoItem) {
             ultimoItem = itemAnterior;
@@ -119,6 +132,21 @@ public class ListaDuplamenteEncadeada<T> {
 
         System.out.println(item.getDado());
     }
+    
+    public void printListReverse() {
+        ItemListaEncadeada<T> item = ultimoItem;
+
+        System.out.println("\n");
+        System.out.println("primeiroItem: " +  ultimoItem.getDado());
+        System.out.println("ultimoItem: "  + primeiroItem.getDado());
+
+        while (item.getAnterior() != null) {
+            System.out.println(item.getDado());
+            item = item.getAnterior();
+        }
+
+        System.out.println(item.getDado());
+    }
 
     public static void main(String[] args) throws Exception {
     	ListaDuplamenteEncadeada<String> lista = new ListaDuplamenteEncadeada<>();
@@ -127,13 +155,15 @@ public class ListaDuplamenteEncadeada<T> {
         lista.add("André");
         lista.add("Ultimo");
         lista.add("Fábio");
-
+        lista.add("Lucas");
+        
         lista.printList();
+        
+        lista.printListReverse();
 
-        lista.remove(3);
+        //lista.remove(3);
 
-        lista.printList();
+        //lista.printList();
     }
 
 }
-
